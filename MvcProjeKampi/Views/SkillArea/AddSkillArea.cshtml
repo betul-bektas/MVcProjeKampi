@@ -1,0 +1,55 @@
+﻿@model EntityLayer.Concrete.SkillArea
+@{
+    ViewBag.Title = "AddSkillArea";
+    Layout = "~/Views/Shared/_TalentLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Yetenek Bölümü Ekleme</title>
+</head>
+<body>
+    <!-- main -->
+    <div class="main">
+
+        <h1>Yetenek Bölümü Ekleme Sayfası</h1>
+        <div class="main-info">
+            <div class="main-row">
+                <td>
+                    <div style="text-align: center">
+                        <a href="/SkillArea/Index" class="btn btn-info"><button type="post" class="btn btn-outline-secondary" style="color: white"><i class="fas fa-pencil-alt"></i> Geri Git</button></a>
+                    </div>
+                    <br />
+                </td>
+                <!-- main-row-one -->
+                <div class="col-md-6 skills-right bar_group" style="max-width: 100%">
+                    @using (Html.BeginForm("AddSkillArea", "SkillArea", FormMethod.Post))
+                    {
+                        <form method="post" action="#">
+                            <div class="modal-body">
+                                @Html.Label("Yetenek Bölümü Adı")
+                                <br />
+                                @Html.TextBoxFor(x => x.Area, new { @class = "form-control" })
+                                @*@Html.ValidationMessageFor(x => x.Area, "", new { @class = "text-danger" })*@
+                                <br /> <br />
+                                @Html.Label("Yetenek Bölümü Detayı")
+                                <br />
+                                @Html.TextBoxFor(x => x.AreaDetails, new { @class = "form-control" })
+                                <br /> <br />
+                                <button class="btn btn-primary">Kaydet</button>
+                                <br />
+                            </div>
+                        </form>
+                    }
+                </div>
+                <!--bar-js-->
+                <script src="~/Themes/Skills_Theme/web/js/bars.js"></script>
+                <div class="clear"> </div>
+            </div>
+        </div>
+        <p>
+        </p>
+    </div>
+</body>
+</html>
